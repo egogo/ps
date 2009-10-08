@@ -1,0 +1,39 @@
+wedding:
+    permalink: wedding
+    ru_title: Свадьба
+    en_title: Wedding
+    
+studio:
+    permalink: studio
+    ru_title: Студия
+    en_title: Studio
+    
+home:
+    permalink: home
+    ru_title: На дому
+    en_title: Home
+    
+report:
+    permalink: report
+    ru_title: Репортаж
+    en_title: Report
+    
+adverising:
+    permalink: adverising
+    ru_title: Реклама
+    en_title: Adverising
+    
+macro:
+    permalink: macro
+    ru_title: Макро
+    en_title: Macro
+    
+collage:
+    permalink: collage
+    ru_title: Коллаж
+    en_title: Collage
+    
+architecture:
+    permalink: architecture
+    ru_title: Архитектура
+    en_title: Architecture

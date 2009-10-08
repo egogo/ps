@@ -1,0 +1,2411 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091008180657)
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(40), "remember_token_expires_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091008180657')[0m
+Migrating to CreateRoles (20091008180725)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCREATE INDEX "index_roles_users_on_role_id" ON "roles_users" ("role_id")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCREATE INDEX "index_roles_users_on_user_id" ON "roles_users" ("user_id")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091008180725')[0m
+Migrating to CreateGalleries (20091008181007)
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "galleries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pos" integer, "permalink" varchar(255), "ru_title" varchar(255), "en_title" varchar(255), "ru_description" text, "en_description" text) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091008181007')[0m
+Migrating to CreatePhotos (20091008181012)
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "photos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "gallery_id" integer, "ru_caption" varchar(255), "en_caption" varchar(255), "ru_description" text, "en_description" text) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091008181012')[0m
+Migrating to CreateStaticPages (20091008181018)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "static_pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pos" integer, "permalink" varchar(255), "ru_title" varchar(255), "en_title" varchar(255), "ru_content" text, "en_content" text) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091008181018')[0m
+Migrating to CreateContentBlocks (20091008181024)
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "content_blocks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "ru_content" text, "en_content" text) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091008181024')[0m
+Migrating to AddAttachmentsImageToPhoto (20091008181306)
+  [4;35;1mSQL (0.4ms)[0m   [0mALTER TABLE "photos" ADD "image_file_name" varchar(255)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mALTER TABLE "photos" ADD "image_content_type" varchar(255)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mALTER TABLE "photos" ADD "image_file_size" integer[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mALTER TABLE "photos" ADD "image_updated_at" datetime[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091008181306')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("content_blocks")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("galleries")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("photos")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("roles")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("roles_users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_roles_users_on_user_id')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_roles_users_on_role_id')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("static_pages")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 21:45:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.5ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.1ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (undefined method `javascript_link_tag' for #<ActionView::Base:0x10342ed58>) on line #7 of app/views/layouts/application.html.erb:
+4: 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+5: 	<title></title>
+6: 	<%= stylesheet_link_tag 'style' %>
+7: 	<%= javascript_link_tag 'mootools-1.2.3-core.js', 'mootools-1.2.3.1-more.js' %>
+8: 	<%= yield :script -%>
+9: </head>
+10: <body>
+
+    app/views/layouts/application.html.erb:7
+
+Rendered rescues/_trace (91.2ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 21:46:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.5ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.1ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (root_url failed to generate from {:controller=>"galleries", :lang=>nil, :action=>"index"}, expected: {:controller=>"galleries", :action=>"index"}, diff: {:lang=>nil}) on line #15 of app/views/layouts/application.html.erb:
+12: 		<div id="head">
+13: 			<div>
+14: 				<h1>
+15: 					<%= link_to image_tag('logo.png', :alt => 'PhotoShaft.com.ua'), root_path(:lang => session[:path]) -%>
+16: 				</h1>
+17: 				<%= render :partial => 'shared/top_menu', :locals => { :items => @static_pages_list } -%>
+18: 			</div>
+
+    (eval):20:in `root_path'
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (104.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 21:47:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.4ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.1ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (0.4ms)
+Rendered shared/_bottom_menu (0.4ms)
+Completed in 21ms (View: 14, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:11) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/1.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:11) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/2.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:11) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/3.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:11) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/4.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:11) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/5.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:11) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/6.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:11) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/7.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:11) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/8.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 21:47:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.5ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.1ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (0.1ms)
+Rendered shared/_bottom_menu (0.0ms)
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:19) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/1.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:19) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/2.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:19) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/3.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:19) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/4.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:19) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/5.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:19) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/6.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:19) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/7.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:19) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/8.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 21:47:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.5ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (0.1ms)
+Rendered shared/_bottom_menu (0.0ms)
+Completed in 12ms (View: 3, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:20) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/1.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:20) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/2.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:20) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/8.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:20) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/4.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:20) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/5.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:20) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/6.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:20) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/7.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:20) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/3.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 21:47:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.1ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (0.1ms)
+Rendered shared/_bottom_menu (0.0ms)
+Completed in 11ms (View: 3, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:21) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/1.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:21) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/2.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:21) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/3.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:21) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/4.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:21) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/5.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:21) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/6.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:21) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/7.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:21) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/8.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 21:47:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.4ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.1ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (0.1ms)
+Rendered shared/_bottom_menu (0.0ms)
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:22) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/1.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:22) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/7.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:22) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/3.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:22) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/4.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:22) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/5.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:22) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/6.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:22) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/2.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 21:47:22) [GET]
+
+ActionController::RoutingError (No route matches "/img/gallery/8.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 21:55:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (0.4ms)
+Rendered shared/_bottom_menu (0.3ms)
+Completed in 34ms (View: 26, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 21:57:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (page_url failed to generate from {:controller=>"static_pages", :action=>"show", :permalink=>"contacts"}, expected: {:controller=>"static_pages", :action=>"show"}, diff: {:permalink=>"contacts"}) on line #5 of app/views/shared/_top_menu.html.erb:
+2: 	
+3: 	<% items.each do |item| %>
+4: 		<li>
+5: 			<%= link_to item.send("#{session[:lang]}_title"), page_path(:permalink => item.permalink) %>
+6: 		</li>
+7: 	<% end %>
+8: 	<li><a href="" class="active">Главная</a></li>
+
+    (eval):20:in `page_path'
+    app/views/shared/_top_menu.html.erb:5
+    app/views/shared/_top_menu.html.erb:3:in `each'
+    app/views/shared/_top_menu.html.erb:3
+    app/views/layouts/application.html.erb:17
+
+Rendered rescues/_trace (50.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+/!\ FAILSAFE /!\  Thu Oct 08 22:02:11 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+            { :lang => session[:lang] }.reverse_merge!
+                          ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:02:39 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] }.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:02:40 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] }.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:02:49 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] }.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:03:09 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:03:10 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:03:10 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:03:33 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:03:33 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:04:01 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:04:02 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:04:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (undefined local variable or method ` ' for #<GalleriesController:0x10328a240>) on line #15 of app/views/layouts/application.html.erb:
+12: 		<div id="head">
+13: 			<div>
+14: 				<h1>
+15: 					<%= link_to image_tag('logo.png', :alt => 'PhotoShaft.com.ua'), root_path(:lang => session[:lang]) -%>
+16: 				</h1>
+17: 				<%= render :partial => 'shared/top_menu', :locals => { :items => @static_pages_list } -%>
+18: 			</div>
+
+    app/controllers/application_controller.rb:37:in `default_url_options'
+    (eval):20:in `root_path'
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (38.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:04:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (61.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (undefined method ` ' for #<GalleriesController:0x1032d7f68>) on line #15 of app/views/layouts/application.html.erb:
+12: 		<div id="head">
+13: 			<div>
+14: 				<h1>
+15: 					<%= link_to image_tag('logo.png', :alt => 'PhotoShaft.com.ua'), root_path(:lang => session[:lang]) -%>
+16: 				</h1>
+17: 				<%= render :partial => 'shared/top_menu', :locals => { :items => @static_pages_list } -%>
+18: 			</div>
+
+    app/controllers/application_controller.rb:37:in `default_url_options'
+    (eval):20:in `root_path'
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (35.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:04:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (undefined method ` ' for #<GalleriesController:0x103364f08>) on line #15 of app/views/layouts/application.html.erb:
+12: 		<div id="head">
+13: 			<div>
+14: 				<h1>
+15: 					<%= link_to image_tag('logo.png', :alt => 'PhotoShaft.com.ua'), root_path(:lang => session[:lang]) -%>
+16: 				</h1>
+17: 				<%= render :partial => 'shared/top_menu', :locals => { :items => @static_pages_list } -%>
+18: 			</div>
+
+    app/controllers/application_controller.rb:37:in `default_url_options'
+    (eval):20:in `root_path'
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (36.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:04:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (undefined method ` ' for #<GalleriesController:0x1033ecde0>) on line #15 of app/views/layouts/application.html.erb:
+12: 		<div id="head">
+13: 			<div>
+14: 				<h1>
+15: 					<%= link_to image_tag('logo.png', :alt => 'PhotoShaft.com.ua'), root_path(:lang => session[:lang]) -%>
+16: 				</h1>
+17: 				<%= render :partial => 'shared/top_menu', :locals => { :items => @static_pages_list } -%>
+18: 			</div>
+
+    app/controllers/application_controller.rb:37:in `default_url_options'
+    (eval):20:in `root_path'
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (100.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:05:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (undefined method ` ' for #<GalleriesController:0x1034c5a28>) on line #15 of app/views/layouts/application.html.erb:
+12: 		<div id="head">
+13: 			<div>
+14: 				<h1>
+15: 					<%= link_to image_tag('logo.png', :alt => 'PhotoShaft.com.ua'), root_path(:lang => session[:lang]) -%>
+16: 				</h1>
+17: 				<%= render :partial => 'shared/top_menu', :locals => { :items => @static_pages_list } -%>
+18: 			</div>
+
+    app/controllers/application_controller.rb:37:in `default_url_options'
+    (eval):20:in `root_path'
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (100.4ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:05:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (undefined method ` ' for #<GalleriesController:0x103584ce8>) on line #15 of app/views/layouts/application.html.erb:
+12: 		<div id="head">
+13: 			<div>
+14: 				<h1>
+15: 					<%= link_to image_tag('logo.png', :alt => 'PhotoShaft.com.ua'), root_path(:lang => session[:lang]) -%>
+16: 				</h1>
+17: 				<%= render :partial => 'shared/top_menu', :locals => { :items => @static_pages_list } -%>
+18: 			</div>
+
+    app/controllers/application_controller.rb:37:in `default_url_options'
+    (eval):20:in `root_path'
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (34.8ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:05:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (undefined method ` ' for #<GalleriesController:0x1036cd640>) on line #15 of app/views/layouts/application.html.erb:
+12: 		<div id="head">
+13: 			<div>
+14: 				<h1>
+15: 					<%= link_to image_tag('logo.png', :alt => 'PhotoShaft.com.ua'), root_path(:lang => session[:lang]) -%>
+16: 				</h1>
+17: 				<%= render :partial => 'shared/top_menu', :locals => { :items => @static_pages_list } -%>
+18: 			</div>
+
+    app/controllers/application_controller.rb:37:in `default_url_options'
+    (eval):20:in `root_path'
+    app/views/layouts/application.html.erb:15
+
+Rendered rescues/_trace (34.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+/!\ FAILSAFE /!\  Thu Oct 08 22:05:32 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:05:32 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:05:33 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => session[:lang] } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:05:44 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => 'ru' } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:05:45 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => 'ru' } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:05:45 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => 'ru' } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:05:45 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => 'ru' } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:05:45 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => 'ru' } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Oct 08 22:05:58 +0300 2009
+  Status: 500 Internal Server Error
+  /Users/ego/Development/shaft/photo/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+       { :lang => 'ru' } #.reverse_merge!(options)
+                  ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:06:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.8ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (page_url failed to generate from {:controller=>"static_pages", :permalink=>"contacts", :locale=>:en, :action=>"show"}, expected: {:controller=>"static_pages", :action=>"show"}, diff: {:permalink=>"contacts", :locale=>:en}) on line #5 of app/views/shared/_top_menu.html.erb:
+2: 	
+3: 	<% items.each do |item| %>
+4: 		<li>
+5: 			<%= link_to item.send("#{session[:lang]}_title"), page_path(:permalink => item.permalink) %>
+6: 		</li>
+7: 	<% end %>
+8: 	<li><a href="" class="active">Главная</a></li>
+
+    (eval):20:in `page_path'
+    app/views/shared/_top_menu.html.erb:5
+    app/views/shared/_top_menu.html.erb:3:in `each'
+    app/views/shared/_top_menu.html.erb:3
+    app/views/layouts/application.html.erb:17
+
+Rendered rescues/_trace (47.5ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:06:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+
+ActionView::TemplateError (page_url failed to generate from {:controller=>"static_pages", :permalink=>"contacts", :locale=>:en, :action=>"show"}, expected: {:controller=>"static_pages", :action=>"show"}, diff: {:permalink=>"contacts", :locale=>:en}) on line #5 of app/views/shared/_top_menu.html.erb:
+2: 	
+3: 	<% items.each do |item| %>
+4: 		<li>
+5: 			<%= link_to item.send("#{session[:lang]}_title"), page_path(:permalink => item.permalink) %>
+6: 		</li>
+7: 	<% end %>
+8: 	<li><a href="" class="active">Главная</a></li>
+
+    (eval):20:in `page_path'
+    app/views/shared/_top_menu.html.erb:5
+    app/views/shared/_top_menu.html.erb:3:in `each'
+    app/views/shared/_top_menu.html.erb:3
+    app/views/layouts/application.html.erb:17
+
+Rendered rescues/_trace (114.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:07:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.3ms)
+Rendered shared/_bottom_menu (0.4ms)
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:07:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (61.8ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.8ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.5ms)
+Rendered shared/_bottom_menu (0.0ms)
+Completed in 79ms (View: 6, DB: 63) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:07:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (8.0ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (3.2ms)
+Rendered shared/_bottom_menu (0.1ms)
+Completed in 24ms (View: 6, DB: 9) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:07:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.8ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (1.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.3ms)
+Rendered shared/_bottom_menu (0.0ms)
+Completed in 15ms (View: 5, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:11:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.8ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (3.2ms)
+Rendered shared/_bottom_menu (0.1ms)
+Completed in 23ms (View: 11, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing StaticPagesController#show (for 127.0.0.1 at 2009-10-08 22:11:41) [GET]
+  Parameters: {"permalink"=>"contacts", "action"=>"show", "lang"=>"ru", "controller"=>"static_pages"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:11:47) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.8ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-08 22:11:53) [GET]
+
+ActionController::RoutingError (No route matches "/en/studio" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:11:59) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:12:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.8ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.4ms)
+Rendered shared/_bottom_menu (0.0ms)
+Completed in 15ms (View: 5, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing StaticPagesController#show (for 127.0.0.1 at 2009-10-08 22:12:05) [GET]
+  Parameters: {"permalink"=>"about", "action"=>"show", "lang"=>"ru", "controller"=>"static_pages"}
+  [4;36;1mStaticPage Load (0.8ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:14) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:34) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:53) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:54) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:54) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:54) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:54) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:55) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:57) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:58) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:58) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:12:58) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:13:12) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:13:13) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:13:13) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:13:13) [GET]
+  Parameters: {"permalink"=>"en", "Path_prefix"=>":lang", "action"=>"show", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+ActionController::UnknownAction (No action responded to show. Actions: access_denied, check_roles, render_optional_error_file, role_requirements, and role_requirements=):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:13:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (3.4ms)
+Rendered shared/_bottom_menu (0.1ms)
+Completed in 15ms (View: 6, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:14:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.9ms)
+Rendered shared/_bottom_menu (4.2ms)
+Completed in 23ms (View: 15, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:15:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.7ms)
+Rendered shared/_bottom_menu (3.5ms)
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:15:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.6ms)
+Rendered shared/_bottom_menu (3.6ms)
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:15:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.5ms)
+Rendered shared/_bottom_menu (3.6ms)
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:16:05) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.5ms)
+Rendered shared/_bottom_menu (3.6ms)
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:16:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (4.5ms)
+Rendered shared/_bottom_menu (3.8ms)
+Completed in 89ms (View: 78, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:16:28) [GET]
+  Parameters: {"action"=>"index", "lang"=>"ru", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.4ms)
+Rendered shared/_bottom_menu (3.2ms)
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/ru]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:16:30) [GET]
+  Parameters: {"action"=>"index", "lang"=>"ru", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.5ms)
+Rendered shared/_bottom_menu (3.9ms)
+Completed in 18ms (View: 10, DB: 1) | 200 OK [http://localhost/ru]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:16:34) [GET]
+  Parameters: {"action"=>"index", "lang"=>"en", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (1.5ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.6ms)
+Rendered shared/_bottom_menu (3.3ms)
+Completed in 91ms (View: 81, DB: 2) | 200 OK [http://localhost/en]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:16:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.9ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.7ms)
+Rendered shared/_bottom_menu (4.2ms)
+Completed in 20ms (View: 11, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:16:47) [GET]
+  Parameters: {"action"=>"index", "lang"=>"ru", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (4.6ms)
+Rendered shared/_bottom_menu (4.2ms)
+Completed in 25ms (View: 12, DB: 1) | 200 OK [http://localhost/ru]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:16:49) [GET]
+  Parameters: {"action"=>"index", "lang"=>"en", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (4.1ms)
+Rendered shared/_bottom_menu (4.2ms)
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/en]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:17:00) [GET]
+  Parameters: {"action"=>"index", "lang"=>"en", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (4.2ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (3.3ms)
+Rendered shared/_bottom_menu (3.4ms)
+Completed in 83ms (View: 11, DB: 5) | 200 OK [http://localhost/en]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:17:05) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (3.6ms)
+Rendered shared/_bottom_menu (4.2ms)
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:17:11) [GET]
+  Parameters: {"action"=>"index", "lang"=>"en", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.5ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (3.8ms)
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/en]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:18:58) [GET]
+  Parameters: {"action"=>"index", "lang"=>"en", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (3.1ms)
+Rendered shared/_bottom_menu (3.4ms)
+Completed in 79ms (View: 10, DB: 1) | 200 OK [http://localhost/en]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-10-08 22:20:19) [GET]
+  Parameters: {"action"=>"index", "lang"=>"en", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.6ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Rendered shared/_top_menu (2.9ms)
+Rendered shared/_bottom_menu (3.9ms)
+Completed in 46ms (View: 39, DB: 1) | 200 OK [http://localhost/en]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:20:22) [GET]
+  Parameters: {"permalink"=>"collage", "action"=>"show", "lang"=>"en", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.8ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Rendered shared/_top_menu (2.7ms)
+Rendered shared/_bottom_menu (2.7ms)
+Completed in 93ms (View: 14, DB: 2) | 200 OK [http://localhost/en/collage]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:21:41) [GET]
+  Parameters: {"permalink"=>"collage", "action"=>"show", "lang"=>"en", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+
+NoMethodError (undefined method `photos' for #<Array:0x1034dc6b0>):
+  app/controllers/galleries_controller.rb:7:in `show'
+
+Rendered rescues/_trace (26.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:22:22) [GET]
+  Parameters: {"permalink"=>"collage", "action"=>"show", "lang"=>"en", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (1.9ms)
+Completed in 83ms (View: 7, DB: 1) | 200 OK [http://localhost/en/collage]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-10-08 22:23:07) [GET]
+  Parameters: {"permalink"=>"collage", "action"=>"show", "lang"=>"en", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (0.7ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (0.6ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;36;1mPhoto Load (0.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071) [0m
+Rendering template within layouts/application
+Rendering galleries/show
+Rendered shared/_top_menu (2.6ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://localhost/en/collage]

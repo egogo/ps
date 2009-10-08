@@ -1,0 +1,51 @@
+<% content_for :script do %>
+	<script type="text/javascript">
+		window.addEvent('domready', function(){
+			var galleryImages = $$('#gallery li');
+			var galleryLinks = $$('#container #content .menu li a');
+			var currentIndex = 0;
+			galleryLinks[0].addClass('active');
+
+			var moveImage = function(e, index){
+				new Event(e).stop();
+				if (index!=currentIndex){
+					galleryLinks[currentIndex].removeClass('active');
+					galleryLinks[index].addClass('active');
+					galleryImages[currentIndex].getElement('img').removeClass('active');
+					galleryImages[index].getElement('img').addClass('active');
+					if (currentIndex<index)
+						for (var i=currentIndex; i<index; i++) galleryImages[i].tween('left', -680+20*i);
+					else 
+						for (var i=index; i<currentIndex; i++) galleryImages[i].tween('left', 20*i);
+					currentIndex = index;
+				}
+			};
+			
+			var initGallery = function(){
+				galleryImages.each(function(element, index){
+					element
+						.addClass('show')
+						.setStyle('z-index', 8-index)
+						.addEvent('mouseover', moveImage.bindWithEvent(null, index))
+						.tween('left', [0, 20*index]);
+					if (!index) element.getElement('img').addClass('active');
+				});
+				galleryLinks.each(function(element, index){
+					element.addEvent('mouseover', moveImage.bindWithEvent(null, index));
+				});
+			};
+			initGallery();
+		});
+	</script>
+<% end %>
+
+<ul id="gallery">
+	<li><a href=""><img src="/images/gallery/1.jpg" /></a></li>
+	<li><a href=""><img src="/images/gallery/2.jpg" /></a></li>
+	<li><a href=""><img src="/images/gallery/3.jpg" /></a></li>
+	<li><a href=""><img src="/images/gallery/4.jpg" /></a></li>
+	<li><a href=""><img src="/images/gallery/5.jpg" /></a></li>
+	<li><a href=""><img src="/images/gallery/6.jpg" /></a></li>
+	<li><a href=""><img src="/images/gallery/7.jpg" /></a></li>
+	<li><a href=""><img src="/images/gallery/8.jpg" /></a></li>
+</ul>

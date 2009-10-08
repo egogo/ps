@@ -1,0 +1,15 @@
+about:
+    permalink: about
+    ru_title: О нас
+    en_title: About
+    
+prices:
+    permalink: prices
+    ru_title: Цены
+    en_title: Prices
+    
+    
+contacts:
+    permalink: contacts
+    ru_title: Контакты
+    en_title: Contacts

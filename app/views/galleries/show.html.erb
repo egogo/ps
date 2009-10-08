@@ -1,0 +1,60 @@
+<% content_for :script do %>
+	<script type="text/javascript">
+		window.addEvent('domready', function(){
+			var galleryListArea = $$('#galleryList div ul')[0];
+			var galleryList = $$('#galleryList div ul li');
+			var currentPosition = 0;
+			var maxPosition = Math.floor((galleryList.length-1)/12);
+			var scrollDown = $$('#scroll #down')[0];
+			var scrollUp = $$('#scroll #up')[0];
+			
+			var scroll = function(e, where){
+				new Event(e).stop();
+				if (where=='down') {
+					if (!currentPosition++) scrollUp.addClass('show')
+					if (currentPosition==maxPosition) scrollDown.removeClass('show');
+				}else{
+					if (!--currentPosition) scrollUp.removeClass('show')
+					if (currentPosition==maxPosition-1) scrollDown.addClass('show');
+				}
+				galleryListArea.tween('margin-top', -currentPosition*402);
+			};
+
+			if (galleryList.length>12){
+				scrollDown.addClass('show').getElement('a').addEvent('click', scroll.bindWithEvent(null, 'down'));
+				scrollUp.getElement('a').addEvent('click', scroll.bindWithEvent(null, 'up'));
+			}
+		});
+	</script>
+<% end %>
+
+<div id="galleryImage"></div>
+<div id="galleryList">
+	<div>
+		<ul>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+		</ul>
+	</div>
+	<ul id="scroll">
+		<li id="up"><a href="">Назад</a></li>
+		<li id="down"><a href="">Еще</a></li>
+	</ul>
+</div>

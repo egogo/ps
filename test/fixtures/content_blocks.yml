@@ -1,0 +1,4 @@
+copy:
+    name: copyright
+    ru_content: '&copy; 2009, Фото-Shaft. Все права защищены.'
+    en_content: '&copy; 2009, Фото-Shaft. All rights reserved.'

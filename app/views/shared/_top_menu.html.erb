@@ -1,0 +1,7 @@
+<ul class="menu">
+	<% items.each_index do |i| %>
+		<li <%= 'class="last"' if i == (items.count-1) -%>>
+			<%= link_to items[i].send("#{session[:lang]}_title"), page_path(:permalink => items[i].permalink), :class => ( (params[:permalink].to_s == items[i].permalink) ? 'active' : '' ) %>
+		</li>
+	<% end %>
+</ul>

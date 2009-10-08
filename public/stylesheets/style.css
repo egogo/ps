@@ -1,0 +1,49 @@
+html, body {height: 100%; padding: 0; margin: 0; font-family: Tahoma; font-size: 12px; background: #f6f5ee; }
+a img {border: none; }
+
+ul.menu {padding: 10px 0; list-style: none; margin: 0; overflow: hidden; margin: 0; }
+ul.menu li {float: left; padding: 0 10px; }
+ul.menu li a {color: #333; text-decoration: none; }
+ul.menu li a:hover,
+ul.menu li a.active {text-decoration: underline; color: #638205;}
+
+div#container {min-height: 100%; *height: 100%; position: relative; }
+
+div#container div#head {padding: 35px 0 0 0; background: #fff; }
+div#container div#head div {width: 840px; margin: 0 auto; position: relative; }
+div#container div#head div h1 {margin: 0; width: 250px; height: 50px; }
+div#container div#head div h1 a {display: block; width: 250px; height: 50px; text-align: center; }
+div#container div#head div h1 a img {width: 250px; height: 50px; line-height: 50px; font-size: 25px; }
+div#container div#head ul.menu {position: absolute; bottom: 5px; right: 0; }
+div#container div#head ul.menu li {border-right: 1px solid #333; }
+div#container div#head ul.menu li.last {border-right: 0; padding-right: 0; }
+
+div#container div#content {width: 840px; margin: 0 auto; padding-bottom: 85px; }
+div#container div#content ul#gallery {list-style: none; height: 466px; margin: 0; padding: 0; position: relative; overflow: hidden; background: url(/images/ajax-loader.gif) no-repeat center center; }
+div#container div#content ul#gallery li {width: 700px; height: 466px; position: absolute; top: 0; border-right: 5px solid #f6f5ee; cursor: pointer; background: #333; display: none; }
+div#container div#content ul#gallery li.show {display: block; }
+div#container div#content ul#gallery li a {display: block; width: 700px; height: 466px; }
+div#container div#content ul#gallery li a img {opacity: .5; filter: alpha(opacity = 50); }
+div#container div#content ul#gallery li a img.active {opacity: 1; filter: alpha(opacity = 50); }
+div#container div#content ul.menu {clear: both; }
+div#container div#content ul.menu li {padding: 0 20px; }
+div#container div#content ul.menu li.first {padding-left: 5px; }
+
+div#container div#content div#galleryImage {float: left; width: 700px; height: 466px; background: #c5c5c5; }
+div#container div#content div#galleryList {float: left; width: 135px; height: 466px; margin-left: 5px; background: #343434; position: relative; }
+div#container div#content div#galleryList div {margin: 12px 0 0; padding: 0 0 0 12px; width: 123px; height: 402px; overflow: hidden; }
+div#container div#content div#galleryList div ul {list-style: none; width: 123px; overflow: hidden; margin: 0; padding: 0; }
+div#container div#content div#galleryList div ul li {width: 50px; height: 50px; float: left; margin: 0 11px 17px 0; }
+div#container div#content div#galleryList div ul li a {display: block; width: 48px; height: 48px; border: 1px solid #fff; background: #ccc; opacity: .5; filter: alpha(opacity = 50); }
+div#container div#content div#galleryList div ul li a:hover,
+div#container div#content div#galleryList div ul li a.active {opacity: 1; filter: alpha(opacity = 50); }
+div#container div#content div#galleryList ul#scroll {list-style: none; margin: 0; padding: 0 12px 5px; position: absolute; bottom: 0; width: 111px; clear: both; }
+div#container div#content div#galleryList ul#scroll li {display: none; }
+div#container div#content div#galleryList ul#scroll li.show {display: block; }
+div#container div#content div#galleryList ul#scroll li#up {float: left; }
+div#container div#content div#galleryList ul#scroll li#down {float: right; }
+div#container div#content div#galleryList ul#scroll li a {color: #fff; text-decoration: none; font-size: 11px; display: block; height: 15px; background: url(/images/navy-arrows.png) no-repeat 0 0; padding: 0 10px; }
+div#container div#content div#galleryList ul#scroll li#down a {background-position: 100% 100%; }
+
+div#container div#footer {width: 100%; height: 84px; border-top: 1px solid #d0d0d0; position: absolute; bottom: 0; }
+div#container div#footer span {display: block; width: 830px; margin: 20px auto 0; color: #333; padding: 0 5px; }
