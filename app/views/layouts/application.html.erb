@@ -19,10 +19,10 @@
 		</div>
 		<div id="content">
 			<%=  yield -%>
-			<%= render :partial => 'shared/bottom_menu', :locals => { :items => @galleries_list} -%>
+			<%= render :partial => 'shared/bottom_menu', :locals => { :items => @galleries_list} if params[:controller] == 'galleries' -%>
 		</div>
 		<div id="footer">
-			<span>&copy; 2009, Фото-Shaft. Все права защищены.</span>
+			<span><%= @copyright.send("#{session[:lang]}_content") -%></span>
 		</div>
 	</div>
 </body>

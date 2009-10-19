@@ -2,6 +2,7 @@ class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
       t.belongs_to  :gallery
+      t.boolean     :default, :default => false
       t.string      :ru_caption
       t.string      :en_caption
       t.text        :ru_description

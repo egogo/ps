@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20091008181306) do
 
   create_table "photos", :force => true do |t|
     t.integer  "gallery_id"
+    t.boolean  "default",            :default => false
     t.string   "ru_caption"
     t.string   "en_caption"
     t.text     "ru_description"

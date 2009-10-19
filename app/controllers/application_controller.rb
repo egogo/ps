@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     end
     
     def load_statics
-      
+      @copyright = ContentBlock.find_by_name('copyright')
     end
     
     def default_url_options(options={})

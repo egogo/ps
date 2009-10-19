@@ -39,13 +39,12 @@
 	</script>
 <% end %>
 
+<% cache "#{session[:lang]}_index_photos" do %>
 <ul id="gallery">
-	<li><a href=""><img src="/images/gallery/1.jpg" /></a></li>
-	<li><a href=""><img src="/images/gallery/2.jpg" /></a></li>
-	<li><a href=""><img src="/images/gallery/3.jpg" /></a></li>
-	<li><a href=""><img src="/images/gallery/4.jpg" /></a></li>
-	<li><a href=""><img src="/images/gallery/5.jpg" /></a></li>
-	<li><a href=""><img src="/images/gallery/6.jpg" /></a></li>
-	<li><a href=""><img src="/images/gallery/7.jpg" /></a></li>
-	<li><a href=""><img src="/images/gallery/8.jpg" /></a></li>
+	<% @galleries_list.each do |gallery| %>
+		<li>
+			<%= link_to image_tag( (!gallery.default_photo.nil?) ? gallery.default_photo.image(:gal) : '/images/gallery/1.jpg'), gallery_path(:permalink => gallery.permalink) -%>
+		</li>
+	<% end %>
 </ul>
+<% end %>

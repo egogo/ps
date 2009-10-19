@@ -28,29 +28,17 @@
 	</script>
 <% end %>
 
+<% cache "#{session[:lang]}_gallery_#{@gallery.id}_photos" do %>
+
 <div id="galleryImage"></div>
 <div id="galleryList">
 	<div>
 		<ul>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
-			<li><a href="/img/gallery/1.jpg"><img /></a></li>
+			<% @gallery.photos.each do |photo| %>
+				<li>
+					<%= link_to image_tag(photo.image.url(:thumb)), photo.image.url(:gal) %>
+				</li>
+			<% end %>
 		</ul>
 	</div>
 	<ul id="scroll">
@@ -58,3 +46,4 @@
 		<li id="down"><a href="">Еще</a></li>
 	</ul>
 </div>
+<% end %>
