@@ -1,0 +1,7 @@
+<ul class="menu">
+	<% items.each_index do |i| %>
+		<li <%= 'class="last"' if i == (items.size-1) -%>>
+			<%= link_to items[i][0], url_for(:controller => "admin/#{items[i][1]}", :action => 'index'), :class => ( (params[:controller].split('/').include?(items[i][1])) ? 'active' : '' ) %>
+		</li>
+	<% end %>
+</ul>

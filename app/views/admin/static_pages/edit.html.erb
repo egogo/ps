@@ -1,0 +1,30 @@
+<% content_for :script do %>
+	<%= wym_editor_initialize %>
+<% end %>
+<%= render :partial => 'top_list', :locals => { :items => @pages } -%>
+
+<% form_for :page, :url => admin_static_page_path(@page), :html => { :method => :put } do |f| %>
+<fieldset>
+	<legend>Название</legend>
+	<div style='width:50%; float: left;'>
+		<label>Русское</label>
+		<%= f.text_field :ru_title %>
+	</div>
+	<div style='width:50%; float: left;'>
+		<label>Английское</label>
+		<%= f.text_field :en_title %>
+	</div>	
+</fieldset>
+<fieldset>
+	<legend>Текст</legend>
+	<div style='width:50%; float: left;'>
+		<label>Русский</label>
+		<%= f.text_area :ru_content, :class => 'wymeditor' -%>
+	</div>
+	<div style='width:50%; float: left;'>
+		<label>Английский</label>
+		<%= f.text_area :en_content, :class => 'wymeditor' -%>
+	</div>	
+</fieldset>
+<%= submit_tag 'Сохранить', :class => 'wymupdate'%>
+<% end %>

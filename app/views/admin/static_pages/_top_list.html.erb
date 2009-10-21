@@ -1,0 +1,7 @@
+<ul class="menu">
+	<% items.each_index do |i| %>
+		<li <%= 'class="first"' if i == 0 -%>>
+			<%= link_to items[i].ru_title, edit_admin_static_page_path(items[i]), :class => ( (params[:id].to_s == items[i].id.to_s) ? 'active' : '' ) %>
+		</li>
+	<% end %>
+</ul>

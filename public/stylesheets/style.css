@@ -22,21 +22,29 @@ div#container div#content {width: 840px; margin: 0 auto; padding-bottom: 85px; }
 div#container div#content ul#gallery {list-style: none; height: 466px; margin: 0; padding: 0; position: relative; overflow: hidden; background: url(/images/ajax-loader.gif) no-repeat center center; }
 div#container div#content ul#gallery li {width: 700px; height: 466px; position: absolute; top: 0; border-right: 5px solid #f6f5ee; cursor: pointer; background: #333; display: none; }
 div#container div#content ul#gallery li.show {display: block; }
-div#container div#content ul#gallery li a {display: block; width: 700px; height: 466px; }
-div#container div#content ul#gallery li a img {opacity: .5; filter: alpha(opacity = 50); }
-div#container div#content ul#gallery li a img.active {opacity: 1; filter: alpha(opacity = 50); }
+div#container div#content ul#gallery li a {display: block; width: 700px; height: 466px; background: no-repeat center center; opacity: .5; filter: alpha(opacity = 50); }
+div#container div#content ul#gallery li a.active {opacity: 1; filter: alpha(opacity = 100); }
 div#container div#content ul.menu {clear: both; }
 div#container div#content ul.menu li {padding: 0 20px; }
 div#container div#content ul.menu li.first {padding-left: 5px; }
 
-div#container div#content div#galleryImage {float: left; width: 700px; height: 466px; background: #c5c5c5; }
+div#container div#content div#galleryImage {float: left; width: 700px; height: 466px; background: #c5c5c5 url(/images/ajax-loader.gif) no-repeat center center; position: relative; }
+div#container div#content div#galleryImage div {position: absolute; left: 0; top: 0; width: 700px; height: 466px; background: no-repeat center center; opacity: 0; filter: alpha(opacity = 0); }
 div#container div#content div#galleryList {float: left; width: 135px; height: 466px; margin-left: 5px; background: #343434; position: relative; }
 div#container div#content div#galleryList div {margin: 12px 0 0; padding: 0 0 0 12px; width: 123px; height: 402px; overflow: hidden; }
 div#container div#content div#galleryList div ul {list-style: none; width: 123px; overflow: hidden; margin: 0; padding: 0; }
 div#container div#content div#galleryList div ul li {width: 50px; height: 50px; float: left; margin: 0 11px 17px 0; }
 div#container div#content div#galleryList div ul li a {display: block; width: 48px; height: 48px; border: 1px solid #fff; background: #ccc; opacity: .5; filter: alpha(opacity = 50); }
 div#container div#content div#galleryList div ul li a:hover,
-div#container div#content div#galleryList div ul li a.active {opacity: 1; filter: alpha(opacity = 50); }
+div#container div#content div#galleryList div ul li a.active {opacity: 1; filter: alpha(opacity = 100); }
+div#container div#content div#galleryList ul#navigation {list-style: none; margin: 0 auto; padding: 0 12px; width: 97px; }
+div#container div#content div#galleryList ul#navigation li {float: left; text-align: center; }
+div#container div#content div#galleryList ul#navigation li a {height: 30px; display: block; }
+div#container div#content div#galleryList ul#navigation li#previousImage a {width: 34px; background: url(/images/previous-next-image.png) no-repeat 0 center; }
+div#container div#content div#galleryList ul#navigation li#nextImage a {width: 34px; background: url(/images/previous-next-image.png) no-repeat -34px center; }
+div#container div#content div#galleryList ul#navigation li#slideShow a {width: 29px; background: url(/images/slide-show.png) no-repeat center center; }
+div#container div#content div#galleryList ul#navigation li a span {display: none; }
+
 div#container div#content div#galleryList ul#scroll {list-style: none; margin: 0; padding: 0 12px 5px; position: absolute; bottom: 0; width: 111px; clear: both; }
 div#container div#content div#galleryList ul#scroll li {display: none; }
 div#container div#content div#galleryList ul#scroll li.show {display: block; }

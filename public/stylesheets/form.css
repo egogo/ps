@@ -1,0 +1,121 @@
+form#formatted {  font-size: 0.9em; padding: 10px 0 25px 10px;}
+label { font-size: 0.9em; }
+
+form#formatted div { clear: left; display: block; width: 680px; border-bottom: 1px dotted #eee; padding-bottom: 7px; margin-bottom: 8px;}
+
+form#formatted div.required  { font-weight: bold; }
+
+form#formatted div label { display: block; float: left; width: 250px; padding: 2px 5px 0 0;  margin: 0 0 8px 0;  text-align: right; font-size: 1em; }
+
+form#formatted div label.labelCheckbox { float: none; display: block; width: 400px; margin: 0 0 2px 260px; text-align: left; }
+
+form#formatted span { width: 100px; display: block; float: left; }
+
+form#formatted div.submit {  padding: 0 0 0 256px; border-bottom: none; width: auto;}
+form#formatted div.submit div { display: inline; float: left; text-align: left; width: auto;}
+form#formatted div input.inputSubmit { width: auto; }
+form#formatted div input.inputSubmit:hover { cursor: pointer; }
+
+form#formatted div small { display: block; margin: 0 0 0 250px; padding: 1px 3px; font-size: 0.85em;}
+
+form#formatted textarea, form#formatted input.inputText, form#formatted input.inputTextarea, form#formatted select, form#formatted div input.small_input, form#formatted input.textarea_size {
+	font-family: Tahoma, Arial, sans-serif; font-size: 1em;
+	border: 1px solid #e1e1e1;
+	background: #f9f9f9;    
+	padding: 1px 2px;
+}
+form#formatted textarea:hover, form#formatted input.inputText:hover, form#formatted input.textarea_size:hover, form#formatted div input.small_input:hover { border: 1px solid #abd539; }
+form#formatted div select { width: 208px; }
+form#formatted div textarea { width: 400px; padding: 1px 3px; }
+form#formatted div input.inputText {  width: 200px; padding: 1px 3px; }
+form#formatted div input.small_input { width: 100px; }
+
+/* =================VERIFICATION & ERROR STYLES ============*/
+
+
+.flash div.no-float {
+  float: none;
+}
+
+.flash {
+	padding: 5px 10px 5px 45px;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	border-width: 2px;
+	border-style: solid;
+	z-index: 70;
+	font-size: 12px;
+}
+.flash.notice {
+	width: 150px;
+	color: #282;
+	background: #dbedb8 url(../images/exl_mark_green.png) no-repeat 5px 5px;
+	text-align: left;
+	border-color: #9dce39;
+	min-height: 35px;
+}
+.flash.error {
+	width: 150px;
+	color: #822;
+    background: #fbe3e4 url(../images/exl_mark_red.png) no-repeat 5px 5px;
+    text-align: left;
+    border-color: #fbc2c4;
+    min-height: 40px;
+}
+.error {
+	display: block;
+	width: 99%;
+	text-align: center;
+}
+span.verification {
+	display: block;
+	float: left;
+	width: 46px;
+	height: 40px;
+	margin: 0 10px;
+}
+
+span.confirmation {
+	display: block;
+	float: left;
+	width: 46px;
+	height: 40px;
+	margin: 0 10px;
+    border: 1px solid #ccc;
+}
+
+/* Error, etc styles from blueprint css framework */
+.errorExplanation,
+.notice,
+.succes,
+.errorExplanation, .error { background: #FBE3E4; color: #8a1f11; border-color: #FBC2C4; }
+.notice     { background: #dbedb8; color: #514721; border-color: #9dce39; }
+.success    { background: #E6EFC2; color: #264409; border-color: #C6D880; }
+.errorExplanation a    { color: #8a1f11; }
+.notice a   { color: #514721; }
+.success a  { color: #264409; }
+
+
+div.error_box { color: #8a1f11; }
+.errorExplanation {
+	border: 1px solid #8A1F11;
+	padding: 10px 15px;
+	margin: 15px 0;
+}
+.errorExplanation h2 {
+	color: #8A1F11;
+	line-height: 1;
+}
+.errorExplanation ul {
+	margin-top: 10px;
+	padding: 0 0 0 20px;
+}
+/* If werification is ok - add class "ok" to that span */
+span.confirmation.checked, span.verification.ok {
+	background: transparent url(../images/ze-verification-ok.gif) no-repeat top left;
+}
+
+span.verification.failed {
+	background: transparent url(../images/ze-error.png) no-repeat top left;
+}

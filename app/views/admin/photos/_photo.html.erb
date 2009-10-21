@@ -1,0 +1,11 @@
+<div style='float: left; position: relative;padding: 1px 2px 2px 2px;' id="<%= "image_#{photo.id}" -%>">
+	<%= link_to image_tag(photo.image.url(:admin_prev)), photo.image.url %>
+	<div style="position:absolute;top:2px;right:2px;color:red;background-color:white;padding: 1px 2px 2px 2px;">
+		<% if photo.default? %>
+			&lt;!&gt;
+		<% else %>
+			<%= link_to_remote "[!]", :url => set_default_admin_gallery_photo_path(photo.gallery_id, photo) -%>
+		<% end %>
+		<%= link_to_remote "[x]", :url => admin_gallery_photo_path(photo.gallery_id, photo), :method => :delete, :confirm => 'Вы уверенны что хотите удалить изображение?' -%>
+	</div>
+</div>
