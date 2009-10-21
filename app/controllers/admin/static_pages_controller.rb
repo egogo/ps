@@ -13,7 +13,8 @@ class Admin::StaticPagesController < Admin::BaseController
     @page = @pages.select {|p| p.id.to_s == params[:id]}.first
     if @page.update_attributes params[:page]
       flash[:notice] = 'Страница сохраненна'
-      expire_page :controller => "/static_pages", :action => "show", :permalink => @page.permalink
+      expire_page :controller => "/static_pages", :action => "show", :permalink => @page.permalink, :lang => 'en'
+      expire_page :controller => "/static_pages", :action => "show", :permalink => @page.permalink, :lang => 'ru'
       redirect_to edit_admin_static_page_path(@page)
     else
       flash[:error] = 'Страница не сохраненна сохраненна'
