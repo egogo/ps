@@ -1,7 +1,7 @@
 require 'mime/types'
 class Photo < ActiveRecord::Base
   belongs_to  :gallery
-  has_attached_file :image, :styles => { :gal => ["700x466>", :png], :thumb => ["48x48#", :png], :admin_thumb => ["70x47>", :png], :admin_prev => ["140x94>", :png] },
+  has_attached_file :image, :styles => { :gal => ["700x466>", :jpg], :thumb => ["48x48#", :jpg], :admin_thumb => ["70x47>", :jpg], :admin_prev => ["140x94>", :jpg] },
                     :url  => "/images/gallery/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/images/gallery/:id/:style/:basename.:extension"
 
