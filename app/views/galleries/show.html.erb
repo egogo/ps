@@ -1,108 +1,126 @@
 <% content_for :script do %>
 	<script type="text/javascript">
-			window.addEvent('domready', function(){
-				var galleryImage = $('galleryImage');
-				var galleryImageAreas = galleryImage.getElements('div');
-				var galleryListArea = $$('#galleryList div ul')[0];
-				var galleryList = galleryListArea.getElements('li');
-				var galleryListLinks = galleryListArea.getElements('li a');
-				var scrollDown = $$('#galleryList #scroll #down')[0];
-				var scrollUp = $$('#galleryList #scroll #up')[0];
+				window.addEvent('domready', function(){
+					var galleryImage = $('galleryImage');
+					var galleryImageAreas = galleryImage.getElements('div');
+					var galleryListArea = $$('#galleryList div ul')[0];
+					var galleryList = galleryListArea.getElements('li');
+					var galleryListLinks = galleryListArea.getElements('li a');
+					var scrollDown = $$('#galleryList #scroll #down')[0];
+					var scrollUp = $$('#galleryList #scroll #up')[0];
 
-				var currentPosition = 0;
-				var maxPosition = Math.floor((galleryList.length-1)/12);
+					var currentPosition = 0;
+					var maxPosition = Math.floor((galleryList.length-1)/12);
 
-				var scroll = function(e, where){
-					if (e) new Event(e).stop();
-					if (where=='down') {
-						if (!currentPosition++) scrollUp.addClass('show')
-						if (currentPosition==maxPosition) scrollDown.removeClass('show');
-					}else{
-						if (!--currentPosition) scrollUp.removeClass('show')
-						if (currentPosition==maxPosition-1) scrollDown.addClass('show');
-					}
-					galleryListArea.tween('margin-top', -currentPosition*402);
-				};
+					var scroll = function(e, where){
+						if (e) new Event(e).stop();
+						if (where=='down') {
+							if (!currentPosition++) scrollUp.addClass('show')
+							if (currentPosition==maxPosition) scrollDown.removeClass('show');
+						}else{
+							if (!--currentPosition) scrollUp.removeClass('show')
+							if (currentPosition==maxPosition-1) scrollDown.addClass('show');
+						}
+						galleryListArea.tween('margin-top', -currentPosition*402);
+					};
 
-				var scrollToTop = function(){
-					currentPosition = 0;
-					galleryListArea.tween('margin-top', 0);
-				};
+					var scrollToTop = function(){
+						currentPosition = 0;
+						galleryListArea.tween('margin-top', 0);
+					};
 
-				var scrollToBottom = function(){
-					currentPosition = maxPosition;
-					galleryListArea.tween('margin-top', -maxPosition*402);
-				};
+					var scrollToBottom = function(){
+						currentPosition = maxPosition;
+						galleryListArea.tween('margin-top', -maxPosition*402);
+					};
 
-				var applyImage = function(){
-					galleryImageAreas[currentShown].setStyle('background-image', 'url('+this.get('src')+')').fade('in');
-				};
+					var applyImage = function(){
+						galleryImageAreas[currentShown].setStyle('background-image', 'url('+this.get('src')+')').fade('in');
+						if (slideShowRunFlag){
+							slideShowRun = showNextImage.periodical(4000);
+							slideShowRunFlag = false;
+						}
+					};
 
-				var currentShown = 0;
-				galleryImageAreas[currentShown].fade('in');
-				var currentImage = 0;
-				var showImage = function(e, index){
-					if (e) new Event(e).stop();
-					galleryImageAreas[currentShown++].fade('out');
-					currentShown %= 2;
+					var currentShown = 0;
+					galleryImageAreas[currentShown].fade('in');
+					var currentImage = null;
+					var showImage = function(e, index){
+						if (e) {
+							new Event(e).stop();
+							if (slideShowRun) $('slideShow').fireEvent('click');
+						}
+						if (index != currentImage){
+							galleryImageAreas[currentShown++].fade('out');
+							currentShown %= 2;
 
-					if (this.image) applyImage.bind(this.image)();
-					else this.image = new Asset.image(this.get('href'), {'onload': applyImage});
-					galleryListLinks[currentImage].removeClass('active');
+							if (this.image) applyImage.bind(this.image)();
+							else {
+								if (slideShowRun) {$clear(slideShowRun); slideShowRunFlag = true; slideShowRun = null; };
+								this.image = new Asset.image(this.get('href'), {'onload': applyImage});
+							}
+							if (currentImage!=null) galleryListLinks[currentImage].removeClass('active');
 
-					currentImage = index;
-					galleryListLinks[currentImage].addClass('active');
-				};
+							currentImage = index;
+							galleryListLinks[currentImage].addClass('active');
+						}
+					};
 
-				galleryListLinks.each(function(link, index){link.addEvent('click', showImage.bindWithEvent(link, index))});
-				if (galleryList.length){
-					galleryListLinks[currentImage].fireEvent('click');
-				}
-				if (galleryList.length>12){
-					scrollDown.addClass('show').getElement('a').addEvent('click', scroll.bindWithEvent(null, 'down'));
-					scrollUp.getElement('a').addEvent('click', scroll.bindWithEvent(null, 'up'));
-				}
-
-				var showNextImage = function(e){
-					if (e) new Event(e).stop();
-					var newCurrent = currentImage+1;
-					if (newCurrent < galleryList.length) {
-						galleryListLinks[newCurrent].fireEvent('click');
-						if (newCurrent > 12*(currentPosition+1)) scroll(null, 'down');
-					} else {
+					galleryListLinks.each(function(link, index){link.addEvent('click', showImage.bindWithEvent(link, index))});
+					if (galleryList.length){
 						galleryListLinks[0].fireEvent('click');
-						scrollToTop();
 					}
-				};
-				$('nextImage').addEvent('click', showNextImage);
+					if (galleryList.length>12){
+						scrollDown.addClass('show').getElement('a').addEvent('click', scroll.bindWithEvent(null, 'down'));
+						scrollUp.getElement('a').addEvent('click', scroll.bindWithEvent(null, 'up'));
+					}
 
-				var showPreviousImage = function(e){
-					if (e) new Event(e).stop();
-					var newCurrent = currentImage-1;
-					if (newCurrent > 0) {
-						galleryListLinks[newCurrent].fireEvent('click');
-						if (newCurrent < 12*(currentPosition)) scroll(null, 'up');
-					} else {
-						galleryListLinks[galleryListLinks.length-1].fireEvent('click');
-						scrollToBottom();
-					}
-				};
-				$('previousImage').addEvent('click', showPreviousImage);
+					var showNextImage = function(e){
+						if (e) {
+							new Event(e).stop();
+							if (slideShowRun) $('slideShow').fireEvent('click');
+						}
+						var newCurrent = currentImage+1;
+						if (newCurrent < galleryList.length) {
+							galleryListLinks[newCurrent].fireEvent('click');
+							if (newCurrent > 12*(currentPosition+1)) scroll(null, 'down');
+						} else {
+							galleryListLinks[0].fireEvent('click');
+							scrollToTop();
+						}
+					};
+					$('nextImage').addEvent('click', showNextImage);
 
-				var slideShowRun = null;
-				var slideShow = function(e){
-					if (e) new Event(e).stop();
-					if (slideShowRun) {
-						$clear(slideShowRun); 
-						slideShowRun=null;
-					}
-					else {
-						showNextImage();
-						slideShowRun = showNextImage.periodical(3333);
-					}
-				};
-				$('slideShow').addEvent('click', slideShow);
-			});
+					var showPreviousImage = function(e){
+						if (e) new Event(e).stop();
+						var newCurrent = currentImage-1;
+						if (newCurrent > 0) {
+							galleryListLinks[newCurrent].fireEvent('click');
+							if (newCurrent < 12*(currentPosition)) scroll(null, 'up');
+						} else {
+							galleryListLinks[galleryListLinks.length-1].fireEvent('click');
+							scrollToBottom();
+						}
+					};
+					$('previousImage').addEvent('click', showPreviousImage);
+
+					var slideShowRun = null;
+					var slideShowRunFlag = null;
+					var slideShow = function(e){
+						if (e) new Event(e).stop();
+						if (slideShowRun) {
+							$clear(slideShowRun); 
+							this.getElement('a').removeClass('pause');
+							slideShowRun=null;
+						}
+						else {
+							showNextImage();
+							this.getElement('a').addClass('pause');
+							slideShowRun = showNextImage.periodical(4000);
+						}
+					};
+					$('slideShow').addEvent('click', slideShow);
+				});
 	</script>
 <% end %>
 
