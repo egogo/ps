@@ -35134,3 +35134,27 @@ Rendering template within layouts/admin
 Rendering admin/users/index
 Rendered shared/admin/_top_menu (3.0ms)
 Completed in 59ms (View: 22, DB: 2) | 200 OK [http://localhost/admin/users]
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-11-03 16:35:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/users"}
+  [4;36;1mContentBlock Load (0.4ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/admin
+Rendering admin/users/index
+Rendered shared/admin/_top_menu (6.7ms)
+Completed in 132ms (View: 49, DB: 2) | 200 OK [http://localhost/admin/users]
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-11-03 16:35:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/users"}
+  [4;36;1mContentBlock Load (0.3ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/admin
+Rendering admin/users/index
+Rendered shared/admin/_top_menu (2.9ms)
+Completed in 61ms (View: 23, DB: 2) | 200 OK [http://localhost/admin/users]
