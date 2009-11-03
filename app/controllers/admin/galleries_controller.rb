@@ -10,6 +10,18 @@ class Admin::GalleriesController < Admin::BaseController
     @gallery.photos(true)
   end
   
+  def sort
+    @gallery = @galleries_list.select {|g| g.id.to_s == params[:id]}.first
+    @gallery.photos(true)
+    @gallery.photos.each do |f|
+      f.position = params["photo-list"].index(f.id.to_s)+1
+      f.save
+    end
+    render :update do |page|
+      
+    end
+  end
+  
   def new
     @gallery = Gallery.new
   end
@@ -17,6 +29,7 @@ class Admin::GalleriesController < Admin::BaseController
   def create
     @gallery = Gallery.new params[:gallery]
     if @gallery.save
+      clear_gallery_cache
       redirect_to edit_admin_galleries_path(@gallery)
     else
       render :action => 'new'
@@ -26,6 +39,7 @@ class Admin::GalleriesController < Admin::BaseController
   def update
     @gallery = Gallery.find params[:id]
     if @gallery.update_attributes params[:gallery]
+      clear_gallery_cache
       redirect_to admin_gallery_path(@gallery)
     else
       render :action => 'edit'
@@ -35,11 +49,17 @@ class Admin::GalleriesController < Admin::BaseController
   def destroy
     @gallery = Gallery.find params[:id]
     @gallery.destroy
+    clear_gallery_cache
     redirect_to admin_galleries_path
   end
   
   protected
     def get_galleries
       @galleries_list = Gallery.find(:all, :order => 'pos ASC')
+    end
+    
+    def clear_gallery_cache
+      ['en', 'ru'].each {|l| expire_fragment "#{l}_index_photos" }
+      ['ru', 'en'].each {|l| expire_fragment "#{l}_gallery_#{@gallery.id}_photos" }
     end
 end

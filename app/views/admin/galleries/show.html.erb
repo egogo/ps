@@ -2,15 +2,19 @@
 <% remote_form_for @gallery, :url => admin_gallery_path(@gallery) do |f| %>
 	<fieldset>
 		<legend>Название</legend>
-		<div style='width:45%; float: left;'>
+		<div style='width:35%; float: left;'>
 			<label>Русское</label>
-			<%= f.text_field :ru_title %>
+			<%= f.text_field :ru_title, :style => 'width:200px;' %>
 		</div>
-		<div style='width:45%; float: left;'>
+		<div style='width:35%; float: left;'>
 			<label>Английское</label>
-			<%= f.text_field :en_title %>
+			<%= f.text_field :en_title, :style => 'width:200px;' %>
 		</div>
-		<div style='width:70px; float: left;'>
+		<div style='width:15%; float: left;'>
+			<label>Номер</label>
+			<%= f.text_field :pos, :style => 'width:30px;' %>
+		</div>
+		<div style='width:15%; float: left;'>
 			<%= submit_tag 'Сохранить' %>
 		</div>
 	</fieldset>
@@ -18,9 +22,13 @@
 
 <div>
 <div style='width:580px;float:left;'>
+	
 <fieldset id="images">
 	<legend>Картинки</legend>
+	<ul id="photo-list" class="sortable">
 	<%= render :partial => 'admin/photos/photo', :collection => @gallery.photos -%>
+	</ul>
+	<%= sortable_element("photo-list", :url => sort_admin_gallery_path(@gallery), :constraint => false) %>
 </fieldset>
 </div>
 

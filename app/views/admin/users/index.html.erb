@@ -1,0 +1,12 @@
+<% @users.each do |u| %>
+<div id="user_<%= u.id -%>">
+	<%= u.login %><br/>
+	<div class="error"></div>
+	Изменить пароль:
+	<% remote_form_for :user, :url => admin_user_path(u), :method => :put do |f| %>
+		<%= f.password_field :password %>
+		<%= f.password_field :password_confirmation %>
+		<%= submit_tag 'Сохранить' %>
+	<% end %>
+</div>
+<% end %>

@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   
   map.namespace :admin do |admin|
-    admin.resources :galleries do |gallery|
+    admin.resources :galleries, :member => [:sort] do |gallery|
       gallery.resources :photos, :member => [:set_default]
     end
     admin.resources :users

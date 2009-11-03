@@ -1,6 +1,6 @@
 class Gallery < ActiveRecord::Base
   before_save :update_permalink
-  has_many  :photos
+  has_many  :photos, :order => "position"
   has_permalink :permalink, :update => true
   
   validates_presence_of :ru_title, :message => "^Русское название обязательно к заполнению"
