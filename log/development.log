@@ -35877,3 +35877,979 @@ Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
 Rendered shared/_top_menu (4.3ms)
 Rendered shared/_bottom_menu (2.3ms)
 Completed in 34ms (View: 10, DB: 6) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-12-08 14:37:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (1.4ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (1.7ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;36;1mContentBlock Load (0.3ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Cached fragment hit: views/ru_index_photos (0.0ms)
+  [4;35;1mPhoto Load (0.8ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.6ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.4ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.4ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.5ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.4ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (1.4ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.7ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.5ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.7ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071) ORDER BY position LIMIT 1[0m
+Cached fragment miss: views/ru_index_photos (0.0ms)
+Rendered shared/_top_menu (3.3ms)
+Rendered shared/_bottom_menu (2.6ms)
+Completed in 355ms (View: 326, DB: 13) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:05) [GET]
+  Parameters: {"permalink"=>"wedding", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.3ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.3ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.3ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.8ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1539464342_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_1539464342_photos (0.0ms)
+Rendered shared/_top_menu (3.0ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 129ms (View: 101, DB: 5) | 200 OK [http://localhost/ru/wedding]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:05) [GET]
+  Parameters: {"permalink"=>"wedding", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.4ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.7ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1539464342_photos (0.0ms)
+Rendered shared/_top_menu (2.7ms)
+Rendered shared/_bottom_menu (2.0ms)
+Completed in 31ms (View: 8, DB: 5) | 200 OK [http://localhost/ru/wedding]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:08) [GET]
+  Parameters: {"permalink"=>"architecture", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1956208378_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_1956208378_photos (0.0ms)
+Rendered shared/_top_menu (2.7ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 34ms (View: 15, DB: 3) | 200 OK [http://localhost/ru/architecture]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:10) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (5.4ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 64ms (View: 35, DB: 8) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:16) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.1ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (2.9ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.7ms)
+Rendered shared/_bottom_menu (2.4ms)
+Completed in 30ms (View: 9, DB: 5) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:21) [GET]
+  Parameters: {"permalink"=>"adverising", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.1ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (0.9ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_729667645_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_729667645_photos (0.0ms)
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 34ms (View: 14, DB: 3) | 200 OK [http://localhost/ru/adverising]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:22) [GET]
+  Parameters: {"permalink"=>"collage", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.1ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.3ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_768815071_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_768815071_photos (0.0ms)
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (1.9ms)
+Completed in 85ms (View: 65, DB: 4) | 200 OK [http://localhost/ru/collage]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:23) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (2.9ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 36ms (View: 16, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:24) [GET]
+  Parameters: {"permalink"=>"macro", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.1ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_781174340_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_781174340_photos (0.0ms)
+Rendered shared/_top_menu (2.4ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 30ms (View: 12, DB: 3) | 200 OK [http://localhost/ru/macro]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:26) [GET]
+  Parameters: {"permalink"=>"studio", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.4ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.3ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (0.7ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1244334006_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_1244334006_photos (0.0ms)
+Rendered shared/_top_menu (2.5ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 35ms (View: 12, DB: 4) | 200 OK [http://localhost/ru/studio]
+
+
+Processing Admin::GalleriesController#index (for 127.0.0.1 at 2009-12-08 14:37:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/galleries"}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:check_roles] rendered_or_redirected.
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/admin]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-12-08 14:37:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+  [4;36;1mStaticPage Load (1.2ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (1.1ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_top_menu (2.8ms)
+Completed in 64ms (View: 51, DB: 3) | 200 OK [http://localhost/session/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-12-08 14:37:35) [POST]
+  Parameters: {"commit"=>"Log in", "action"=>"create", "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "controller"=>"sessions", "login"=>"admin", "password"=>"[FILTERED]"}
+  [4;35;1mStaticPage Load (1.1ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (10.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/admin
+Completed in 51ms (DB: 13) | 302 Found [http://localhost/session]
+
+
+Processing Admin::GalleriesController#index (for 127.0.0.1 at 2009-12-08 14:37:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/galleries"}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+Redirected to http://localhost:3000/admin/galleries/1539464342
+Completed in 23ms (DB: 2) | 302 Found [http://localhost/admin]
+
+
+Processing Admin::GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:37:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"1539464342", "controller"=>"admin/galleries"}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (1.3ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mPhoto Load (2.9ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342) ORDER BY position[0m
+Rendering template within layouts/admin
+Rendering admin/galleries/show
+Rendered admin/galleries/_gallery_top_selector (4.4ms)
+Rendered admin/photos/_photo (5.0ms)
+Rendered admin/photos/_photo (4.1ms)
+Rendered admin/photos/_photo (2.5ms)
+Rendered admin/photos/_photo (4.0ms)
+Rendered admin/photos/_photo (4.1ms)
+Rendered admin/photos/_photo (4.1ms)
+Rendered admin/photos/_photo (4.1ms)
+Rendered admin/photos/_photo (3.9ms)
+Rendered admin/photos/_photo (3.9ms)
+Rendered shared/_swfupload_form (1.8ms)
+Rendered shared/admin/_top_menu (2.6ms)
+Completed in 169ms (View: 82, DB: 5) | 200 OK [http://localhost/admin/galleries/1539464342]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:37:48) [POST]
+  Parameters: {"Filename"=>"20091010-_MG_9920.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.0>}
+  [4;36;1mContentBlock Load (0.3ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (0.9ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.4ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(174061, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:37:48', 10, NULL, '20091010-_MG_9920.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/71/original/20091010-_MG_9920.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/71/thumb/20091010-_MG_9920.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/71/gal/20091010-_MG_9920.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/71/admin_thumb/20091010-_MG_9920.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/71/admin_prev/20091010-_MG_9920.jpg
+Expired fragment: views/en_index_photos (0.1ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (4.6ms)
+Completed in 1661ms (View: 6, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:37:50) [POST]
+  Parameters: {"Filename"=>"131020091359.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.1>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (33.5ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.3ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(567877, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:37:50', 11, NULL, '131020091359.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/72/original/131020091359.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/72/thumb/131020091359.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/72/gal/131020091359.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/72/admin_thumb/131020091359.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/72/admin_prev/131020091359.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (4.8ms)
+Completed in 1912ms (View: 6, DB: 35) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:37:52) [POST]
+  Parameters: {"Filename"=>"131020091360.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.2>}
+  [4;36;1mContentBlock Load (1.1ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.3ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.4ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(529421, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:37:52', 12, NULL, '131020091360.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/73/original/131020091360.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/73/thumb/131020091360.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/73/gal/131020091360.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/73/admin_thumb/131020091360.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/73/admin_prev/131020091360.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (5.7ms)
+Completed in 1934ms (View: 7, DB: 3) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:37:54) [POST]
+  Parameters: {"Filename"=>"131020091363.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.0>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.3ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(549264, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:37:54', 13, NULL, '131020091363.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/74/original/131020091363.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/74/thumb/131020091363.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/74/gal/131020091363.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/74/admin_thumb/131020091363.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/74/admin_prev/131020091363.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (4.8ms)
+Completed in 2527ms (View: 6, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:37:56) [POST]
+  Parameters: {"Filename"=>"250920091337.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.1>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.3ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(392270, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:37:56', 14, NULL, '250920091337.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/75/original/250920091337.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/75/thumb/250920091337.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/75/gal/250920091337.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/75/admin_thumb/250920091337.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/75/admin_prev/250920091337.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (5.6ms)
+Completed in 2044ms (View: 7, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:37:59) [POST]
+  Parameters: {"Filename"=>"281020091369.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.0>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.2ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(703469, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:37:59', 15, NULL, '281020091369.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/76/original/281020091369.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/76/thumb/281020091369.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/76/gal/281020091369.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/76/admin_thumb/281020091369.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/76/admin_prev/281020091369.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (4.6ms)
+Completed in 1893ms (View: 6, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:01) [POST]
+  Parameters: {"Filename"=>"281020091370.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.2>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.3ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(562029, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:01', 16, NULL, '281020091370.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/77/original/281020091370.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/77/thumb/281020091370.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/77/gal/281020091370.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/77/admin_thumb/281020091370.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/77/admin_prev/281020091370.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (5.0ms)
+Completed in 1870ms (View: 6, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpG--9d7bbefe36f91d39f72f0a3260386669ff5a9e07&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:38:04) [GET]
+  Parameters: {"action"=>"show", "id"=>"1539464342", "controller"=>"admin/galleries"}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (1.2ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;36;1mPhoto Load (3.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342) ORDER BY position[0m
+Rendering template within layouts/admin
+Rendering admin/galleries/show
+Rendered admin/galleries/_gallery_top_selector (4.1ms)
+Rendered admin/photos/_photo (4.7ms)
+Rendered admin/photos/_photo (4.8ms)
+Rendered admin/photos/_photo (2.8ms)
+Rendered admin/photos/_photo (4.2ms)
+Rendered admin/photos/_photo (4.2ms)
+Rendered admin/photos/_photo (4.1ms)
+Rendered admin/photos/_photo (4.7ms)
+Rendered admin/photos/_photo (8.2ms)
+Rendered admin/photos/_photo (5.1ms)
+Rendered admin/photos/_photo (4.3ms)
+Rendered admin/photos/_photo (4.2ms)
+Rendered admin/photos/_photo (4.0ms)
+Rendered admin/photos/_photo (4.1ms)
+Rendered admin/photos/_photo (4.1ms)
+Rendered admin/photos/_photo (4.1ms)
+Rendered admin/photos/_photo (7.3ms)
+Rendered shared/_swfupload_form (0.1ms)
+Rendered shared/admin/_top_menu (1.2ms)
+Completed in 138ms (View: 102, DB: 5) | 200 OK [http://localhost/admin/galleries/1539464342]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:21) [POST]
+  Parameters: {"Filename"=>"1.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.0>}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (0.2ms)[0m   [0;1mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;35;1mPhoto Load (1.2ms)[0m   [0mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;36;1mPhoto Create (0.3ms)[0m   [0;1mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(104382, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:21', 17, NULL, '1.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/78/original/1.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/78/thumb/1.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/78/gal/1.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/78/admin_thumb/1.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/78/admin_prev/1.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (5.9ms)
+Completed in 411ms (View: 7, DB: 3) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:22) [POST]
+  Parameters: {"Filename"=>"2.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.1>}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (0.2ms)[0m   [0;1mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;35;1mPhoto Load (0.9ms)[0m   [0mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;36;1mPhoto Create (0.2ms)[0m   [0;1mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(131070, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:22', 18, NULL, '2.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/79/original/2.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/79/thumb/2.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/79/gal/2.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/79/admin_thumb/2.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/79/admin_prev/2.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (5.1ms)
+Completed in 404ms (View: 6, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:22) [POST]
+  Parameters: {"Filename"=>"3.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.2>}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (0.3ms)[0m   [0;1mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;35;1mPhoto Load (1.0ms)[0m   [0mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;36;1mPhoto Create (0.3ms)[0m   [0;1mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(172068, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:23', 19, NULL, '3.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/80/original/3.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/80/thumb/3.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/80/gal/3.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/80/admin_thumb/3.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/80/admin_prev/3.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (7.0ms)
+Completed in 484ms (View: 11, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:23) [POST]
+  Parameters: {"Filename"=>"4.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.0>}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (0.4ms)[0m   [0;1mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;35;1mPhoto Load (1.0ms)[0m   [0mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;36;1mPhoto Create (0.2ms)[0m   [0;1mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(98654, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:23', 20, NULL, '4.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/81/original/4.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/81/thumb/4.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/81/gal/4.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/81/admin_thumb/4.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/81/admin_prev/4.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (5.2ms)
+Completed in 410ms (View: 6, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:24) [POST]
+  Parameters: {"Filename"=>"5.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.1>}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (0.2ms)[0m   [0;1mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;35;1mPhoto Load (1.3ms)[0m   [0mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;36;1mPhoto Create (0.3ms)[0m   [0;1mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(109668, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:24', 21, NULL, '5.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/82/original/5.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/82/thumb/5.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/82/gal/5.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/82/admin_thumb/5.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/82/admin_prev/5.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (7.0ms)
+Completed in 489ms (View: 8, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:24) [POST]
+  Parameters: {"Filename"=>"6.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.0>}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (0.3ms)[0m   [0;1mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;35;1mPhoto Load (1.1ms)[0m   [0mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;36;1mPhoto Create (0.3ms)[0m   [0;1mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(187082, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:24', 22, NULL, '6.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/83/original/6.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/83/thumb/6.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/83/gal/6.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/83/admin_thumb/6.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/83/admin_prev/6.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (5.3ms)
+Completed in 460ms (View: 7, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:25) [POST]
+  Parameters: {"Filename"=>"7.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.2>}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (0.2ms)[0m   [0;1mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;35;1mPhoto Load (1.6ms)[0m   [0mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;36;1mPhoto Create (0.5ms)[0m   [0;1mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(97205, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:25', 23, NULL, '7.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/84/original/7.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/84/thumb/7.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/84/gal/7.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/84/admin_thumb/7.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/84/admin_prev/7.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (19.2ms)
+Completed in 571ms (View: 20, DB: 3) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:26) [POST]
+  Parameters: {"Filename"=>"8.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.0>}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (0.2ms)[0m   [0;1mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;35;1mPhoto Load (1.0ms)[0m   [0mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;36;1mPhoto Create (9.1ms)[0m   [0;1mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(130112, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:26', 24, NULL, '8.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/85/original/8.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/85/thumb/8.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/85/gal/8.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/85/admin_thumb/8.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/85/admin_prev/8.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (7.4ms)
+Completed in 440ms (View: 9, DB: 11) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwpU--45a903094a3b732dcdd0467493822dec0c7badda&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-12-08 14:38:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;35;1mStaticPage Load (1.3ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Cached fragment hit: views/ru_index_photos (0.0ms)
+  [4;36;1mPhoto Load (0.9ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.6ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.5ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.7ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.4ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.6ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.4ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.7ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.4ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.7ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.4ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.6ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.4ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.6ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071) ORDER BY position LIMIT 1[0m
+Cached fragment miss: views/ru_index_photos (0.0ms)
+Rendered shared/_top_menu (3.1ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 57ms (View: 36, DB: 11) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:38:32) [GET]
+  Parameters: {"permalink"=>"wedding", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;36;1mStaticPage Load (1.3ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (1.2ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mPhoto Load (5.2ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1539464342_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_1539464342_photos (0.0ms)
+Rendered shared/_top_menu (5.1ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 69ms (View: 43, DB: 8) | 200 OK [http://localhost/ru/wedding]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-12-08 14:38:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (1.2ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (1.0ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Cached fragment hit: views/ru_index_photos (0.0ms)
+Rendered shared/_top_menu (2.6ms)
+Rendered shared/_bottom_menu (3.6ms)
+Completed in 22ms (View: 10, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing Admin::GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:38:41) [GET]
+  Parameters: {"action"=>"show", "id"=>"1539464342", "controller"=>"admin/galleries"}
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mPhoto Load (3.4ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342) ORDER BY position[0m
+Rendering template within layouts/admin
+Rendering admin/galleries/show
+Rendered admin/galleries/_gallery_top_selector (3.8ms)
+Rendered admin/photos/_photo (4.1ms)
+Rendered admin/photos/_photo (4.4ms)
+Rendered admin/photos/_photo (2.4ms)
+Rendered admin/photos/_photo (3.9ms)
+Rendered admin/photos/_photo (4.0ms)
+Rendered admin/photos/_photo (3.9ms)
+Rendered admin/photos/_photo (4.3ms)
+Rendered admin/photos/_photo (4.3ms)
+Rendered admin/photos/_photo (4.2ms)
+Rendered admin/photos/_photo (4.1ms)
+Rendered admin/photos/_photo (4.0ms)
+Rendered admin/photos/_photo (4.0ms)
+Rendered admin/photos/_photo (68.5ms)
+Rendered admin/photos/_photo (4.2ms)
+Rendered admin/photos/_photo (4.0ms)
+Rendered admin/photos/_photo (4.0ms)
+Rendered admin/photos/_photo (4.6ms)
+Rendered admin/photos/_photo (5.8ms)
+Rendered admin/photos/_photo (4.0ms)
+Rendered admin/photos/_photo (3.9ms)
+Rendered admin/photos/_photo (3.9ms)
+Rendered admin/photos/_photo (3.9ms)
+Rendered admin/photos/_photo (4.4ms)
+Rendered admin/photos/_photo (3.9ms)
+Rendered shared/_swfupload_form (0.1ms)
+Rendered shared/admin/_top_menu (1.2ms)
+Completed in 214ms (View: 185, DB: 5) | 200 OK [http://localhost/admin/galleries/1539464342]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:47) [POST]
+  Parameters: {"Filename"=>"1.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--69198ddd968dc250c9e7050f9c40c82a4854529c", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.1>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.3ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.4ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(104382, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:47', 25, NULL, '1.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/86/original/1.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/86/thumb/1.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/86/gal/1.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/86/admin_thumb/1.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/86/admin_prev/1.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (4.4ms)
+Completed in 504ms (View: 5, DB: 3) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--69198ddd968dc250c9e7050f9c40c82a4854529c&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:47) [POST]
+  Parameters: {"Filename"=>"2.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--69198ddd968dc250c9e7050f9c40c82a4854529c", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.2>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.5ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.3ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(131070, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:47', 26, NULL, '2.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/87/original/2.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/87/thumb/2.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/87/gal/2.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/87/admin_thumb/2.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/87/admin_prev/2.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (6.2ms)
+Completed in 525ms (View: 7, DB: 3) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--69198ddd968dc250c9e7050f9c40c82a4854529c&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:48) [POST]
+  Parameters: {"Filename"=>"3.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--69198ddd968dc250c9e7050f9c40c82a4854529c", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.0>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.3ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(172068, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:48', 27, NULL, '3.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/88/original/3.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/88/thumb/3.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/88/gal/3.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/88/admin_thumb/3.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/88/admin_prev/3.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (7.1ms)
+Completed in 417ms (View: 8, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--69198ddd968dc250c9e7050f9c40c82a4854529c&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:48) [POST]
+  Parameters: {"Filename"=>"4.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--69198ddd968dc250c9e7050f9c40c82a4854529c", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.1>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.3ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(98654, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:48', 28, NULL, '4.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/89/original/4.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/89/thumb/4.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/89/gal/4.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/89/admin_thumb/4.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/89/admin_prev/4.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (5.0ms)
+Completed in 489ms (View: 6, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--69198ddd968dc250c9e7050f9c40c82a4854529c&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:49) [POST]
+  Parameters: {"Filename"=>"5.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--69198ddd968dc250c9e7050f9c40c82a4854529c", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.0>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.3ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(109668, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:49', 29, NULL, '5.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/90/original/5.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/90/thumb/5.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/90/gal/5.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/90/admin_thumb/5.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/90/admin_prev/5.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (4.6ms)
+Completed in 444ms (View: 6, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--69198ddd968dc250c9e7050f9c40c82a4854529c&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:49) [POST]
+  Parameters: {"Filename"=>"6.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--69198ddd968dc250c9e7050f9c40c82a4854529c", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.2>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.3ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (0.9ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.2ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(187082, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:50', 30, NULL, '6.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/91/original/6.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/91/thumb/6.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/91/gal/6.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/91/admin_thumb/6.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/91/admin_prev/6.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (6.2ms)
+Completed in 467ms (View: 7, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--69198ddd968dc250c9e7050f9c40c82a4854529c&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:50) [POST]
+  Parameters: {"Filename"=>"7.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--69198ddd968dc250c9e7050f9c40c82a4854529c", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.3>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.2ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(97205, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:50', 31, NULL, '7.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/92/original/7.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/92/thumb/7.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/92/gal/7.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/92/admin_thumb/7.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/92/admin_prev/7.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (6.7ms)
+Completed in 407ms (View: 8, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--69198ddd968dc250c9e7050f9c40c82a4854529c&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing Admin::PhotosController#create (for 127.0.0.1 at 2009-12-08 14:38:51) [POST]
+  Parameters: {"Filename"=>"8.jpg", "gallery_id"=>"1539464342", "request_forgery_protection_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "_photo_session"=>"BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--69198ddd968dc250c9e7050f9c40c82a4854529c", "action"=>"create", "amp"=>nil, "authenticity_token"=>"2AbZNFppdb7FRnmF29ps5BUMuAd+sL1nH+Guw4PLKuI=", "Upload"=>"Submit Query", "controller"=>"admin/photos", "Filedata"=>#<File:/var/folders/89/8957jNHuFf8zE12tRDUdK++++TI/-Tmp-/RackMultipart.20874.0>}
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM "galleries" WHERE ("galleries"."id" = 1539464342) [0m
+  [4;36;1mPhoto Load (1.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE (gallery_id = 1539464342) ORDER BY position DESC LIMIT 1[0m
+  [4;35;1mPhoto Create (0.3ms)[0m   [0mINSERT INTO "photos" ("image_file_size", "gallery_id", "default", "ru_description", "image_content_type", "en_caption", "en_description", "image_updated_at", "position", "ru_caption", "image_file_name") VALUES(130112, 1539464342, 'f', NULL, 'image/jpeg', NULL, NULL, '2009-12-08 12:38:51', 32, NULL, '8.jpg')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/93/original/8.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/93/thumb/8.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/93/gal/8.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/93/admin_thumb/8.jpg
+[paperclip] saving /Users/ego/Development/shaft/photo/public/images/gallery/93/admin_prev/8.jpg
+Expired fragment: views/en_index_photos (0.0ms)
+Expired fragment: views/ru_index_photos (0.0ms)
+Expired fragment: views/ru_gallery_1539464342_photos (0.0ms)
+Expired fragment: views/en_gallery_1539464342_photos (0.0ms)
+Rendered admin/photos/_photo (6.1ms)
+Completed in 396ms (View: 7, DB: 2) | 200 OK [http://localhost/admin/galleries/1539464342/photos?_photo_session=BAh7CjoMdXNlcl9pZGkGOhBfY3NyZl90b2tlbiIxMkFiWk5GcHBkYjdGUm5tRjI5cHM1QlVNdUFkK3NMMW5IK0d1dzRQTEt1ST06D3Nlc3Npb25faWQiJTYzNTliZGVjMDM5YjU5ZGI3MzBiYjZlNGMyZWI3MDg3OglsYW5nIgdydSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--69198ddd968dc250c9e7050f9c40c82a4854529c&amp;request_forgery_protection_token=2AbZNFppdb7FRnmF29ps5BUMuAd%2BsL1nH%2BGuw4PLKuI%3D]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-12-08 14:38:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (1.5ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (1.3ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;36;1mContentBlock Load (0.3ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Cached fragment hit: views/ru_index_photos (0.0ms)
+  [4;35;1mPhoto Load (0.7ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.5ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.4ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.4ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.5ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.4ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.4ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.5ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.7ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.6ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.7ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071) ORDER BY position LIMIT 1[0m
+Cached fragment miss: views/ru_index_photos (0.0ms)
+Rendered shared/_top_menu (3.0ms)
+Rendered shared/_bottom_menu (2.0ms)
+Completed in 139ms (View: 115, DB: 11) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:39:00) [GET]
+  Parameters: {"permalink"=>"wedding", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (4.4ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1539464342_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_1539464342_photos (0.0ms)
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (2.0ms)
+Completed in 69ms (View: 43, DB: 7) | 200 OK [http://localhost/ru/wedding]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:39:08) [GET]
+  Parameters: {"permalink"=>"wedding", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (4.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1539464342_photos (0.0ms)
+Rendered shared/_top_menu (2.5ms)
+Rendered shared/_bottom_menu (2.0ms)
+Completed in 31ms (View: 8, DB: 6) | 200 OK [http://localhost/ru/wedding]
