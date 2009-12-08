@@ -63,12 +63,17 @@
 
 							currentImage = index;
 							galleryListLinks[currentImage].addClass('active');
+							window.location.hash = 'slide_'+(index+1);
 						}
 					};
 
 					galleryListLinks.each(function(link, index){link.addEvent('click', showImage.bindWithEvent(link, index))});
 					if (galleryList.length){
-						galleryListLinks[0].fireEvent('click');
+						if(window.location.hash == ''){
+							galleryListLinks[0].fireEvent('click');
+						}else{
+							galleryListLinks[window.location.hash.replace(/[^\d]/gi, '').toInt()-1].fireEvent('click');
+						}
 					}
 					if (galleryList.length>12){
 						scrollDown.addClass('show').getElement('a').addEvent('click', scroll.bindWithEvent(null, 'down'));

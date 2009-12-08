@@ -35302,3 +35302,507 @@ Rendering static_pages/show
 Rendered shared/_top_menu (2.5ms)
 Cached page: /ru/static/about.html (0.6ms)
 Completed in 40ms (View: 8, DB: 3) | 200 OK [http://localhost/ru/static/about]
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-12-08 14:03:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (2.4ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (1.0ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Cached fragment hit: views/ru_index_photos (0.0ms)
+
+ActionView::TemplateError (no such file to load -- mime/types) on line #51 of app/views/galleries/index.html.erb:
+48: <ul id="gallery">
+49: 	<% @galleries_list.each do |gallery| %>
+50: 		<li>
+51: 			<%= link_to '', gallery_path(:permalink => gallery.permalink), :style => "background-image: url(#{ (!gallery.default_photo.nil?) ? gallery.default_photo.image(:gal) : '/images/gallery/1.jpg' })" -%>
+52: 		</li>
+53: 	<% end %>
+54: </ul>
+
+    app/models/photo.rb:1
+    app/models/gallery.rb:10:in `default_photo'
+    app/views/galleries/index.html.erb:51
+    app/views/galleries/index.html.erb:49:in `each'
+    app/views/galleries/index.html.erb:49
+    app/views/galleries/index.html.erb:47
+
+Rendered rescues/_trace (50.3ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-08 14:03:12) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GalleriesController#index (for 127.0.0.1 at 2009-12-08 14:03:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"galleries"}
+  [4;36;1mStaticPage Load (1.4ms)[0m   [0;1mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;35;1mGallery Load (1.1ms)[0m   [0mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;36;1mContentBlock Load (0.2ms)[0m   [0;1mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering galleries/index
+Cached fragment hit: views/ru_index_photos (0.0ms)
+  [4;35;1mPhoto Load (0.9ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1539464342 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.6ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1956208378) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.4ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (1.7ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.8ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.6ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 729667645) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (3.8ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (1.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1244334006) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.5ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.5ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 781174340) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.5ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (0.7ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position LIMIT 1[0m
+  [4;35;1mPhoto Load (0.5ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mPhoto Load (1.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071) ORDER BY position LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071 AND ("photos"."default" = 't')) ORDER BY position LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 768815071) ORDER BY position LIMIT 1[0m
+Cached fragment miss: views/ru_index_photos (0.0ms)
+Rendered shared/_top_menu (19.1ms)
+Rendered shared/_bottom_menu (2.9ms)
+Completed in 391ms (View: 363, DB: 17) | 200 OK [http://localhost/]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:03:39) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (3.0ms)
+Rendered shared/_bottom_menu (2.0ms)
+Completed in 107ms (View: 24, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:05:12) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.3ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.3ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 36ms (View: 16, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:07:31) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.4ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (3.0ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 39ms (View: 16, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:07:44) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (2.9ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 36ms (View: 16, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:08:07) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (2.7ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 39ms (View: 16, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:08:12) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.3ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.4ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (3.5ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 98ms (View: 17, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:08:21) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.7ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.8ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (2.7ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 37ms (View: 15, DB: 5) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:08:26) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (2.6ms)
+Rendered shared/_bottom_menu (2.0ms)
+Completed in 28ms (View: 8, DB: 3) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:08:39) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 29ms (View: 8, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:08:47) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.4ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.3ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (2.7ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 46ms (View: 15, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:08:50) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.3ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (2.6ms)
+Rendered shared/_bottom_menu (2.0ms)
+Completed in 28ms (View: 8, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:08:55) [GET]
+  Parameters: {"permalink"=>"home", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (1.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1909853392) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1909853392_photos (0.0ms)
+Rendered shared/_top_menu (3.1ms)
+Rendered shared/_bottom_menu (2.7ms)
+Completed in 31ms (View: 10, DB: 4) | 200 OK [http://localhost/ru/home]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:09:01) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.4ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Cached fragment miss: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 57ms (View: 33, DB: 6) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:14:42) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.3ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (3.6ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (2.8ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (4.0ms)
+Rendered shared/_bottom_menu (3.9ms)
+Completed in 114ms (View: 84, DB: 8) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:14:47) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.3ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.5ms)
+Rendered shared/_bottom_menu (2.0ms)
+Completed in 30ms (View: 8, DB: 6) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:14:57) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.3ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.5ms)
+Rendered shared/_bottom_menu (2.4ms)
+Completed in 31ms (View: 8, DB: 6) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:15:13) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (3.1ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 39ms (View: 16, DB: 6) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:15:42) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.1ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (2.8ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (3.0ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 38ms (View: 16, DB: 5) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:15:43) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (3.0ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 31ms (View: 8, DB: 5) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:19:12) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.3ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (3.5ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 40ms (View: 16, DB: 6) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:20:12) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 43ms (View: 16, DB: 6) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:20:14) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (2.8ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.6ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 30ms (View: 8, DB: 5) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:20:52) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.3ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.1ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (3.1ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 94ms (View: 17, DB: 6) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:21:02) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (2.9ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.1ms)
+Rendered shared/_top_menu (2.7ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 32ms (View: 8, DB: 5) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:21:14) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.7ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (2.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.3ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (4.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (4.3ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 109ms (View: 19, DB: 8) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:21:19) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (3.5ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 34ms (View: 8, DB: 8) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:21:26) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.1ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.0ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (2.8ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.5ms)
+Rendered shared/_bottom_menu (1.9ms)
+Completed in 28ms (View: 7, DB: 5) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:21:35) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (3.4ms)
+Rendered shared/_bottom_menu (2.2ms)
+Completed in 40ms (View: 17, DB: 6) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:21:37) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.1ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.1ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (2.9ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.6ms)
+Rendered shared/_bottom_menu (2.1ms)
+Completed in 29ms (View: 8, DB: 5) | 200 OK [http://localhost/ru/report]
+
+
+Processing GalleriesController#show (for 127.0.0.1 at 2009-12-08 14:21:41) [GET]
+  Parameters: {"permalink"=>"report", "action"=>"show", "controller"=>"galleries", "lang"=>"ru"}
+  [4;35;1mStaticPage Load (1.2ms)[0m   [0mSELECT * FROM "static_pages" ORDER BY pos ASC[0m
+  [4;36;1mGallery Load (1.2ms)[0m   [0;1mSELECT * FROM "galleries" ORDER BY pos ASC[0m
+  [4;35;1mContentBlock Load (0.2ms)[0m   [0mSELECT * FROM "content_blocks" WHERE ("content_blocks"."name" = 'copyright') LIMIT 1[0m
+  [4;36;1mPhoto Load (3.0ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".gallery_id = 1143961477) ORDER BY position[0m
+Rendering template within layouts/application
+Rendering galleries/show
+Cached fragment hit: views/ru_gallery_1143961477_photos (0.0ms)
+Rendered shared/_top_menu (2.8ms)
+Rendered shared/_bottom_menu (2.3ms)
+Completed in 33ms (View: 10, DB: 6) | 200 OK [http://localhost/ru/report]
