@@ -72,7 +72,10 @@
 						if(window.location.hash == ''){
 							galleryListLinks[0].fireEvent('click');
 						}else{
-							galleryListLinks[window.location.hash.replace(/[^\d]/gi, '').toInt()-1].fireEvent('click');
+							var p_image = window.location.hash.replace(/[^\d]/gi, '').toInt()-1;
+							if(p_image >= 12)
+								((p_image+1)/12).round().times(function(){scroll(null, 'down');});
+							galleryListLinks[p_image].fireEvent('click');
 						}
 					}
 					if (galleryList.length>12){
