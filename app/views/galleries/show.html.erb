@@ -73,8 +73,8 @@
 							galleryListLinks[0].fireEvent('click');
 						}else{
 							var p_image = window.location.hash.replace(/[^\d]/gi, '').toInt()-1;
-							if(p_image >= 12)
-								((p_image+1)/12-1).round().times(function(){scroll(null, 'down');});
+							if(p_image > 12)
+								((p_image+1+12-(p_image+1)%12)/12-1).times(function(){scroll(null, 'down');});
 							galleryListLinks[p_image].fireEvent('click');
 						}
 					}
