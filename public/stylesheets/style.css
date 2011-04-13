@@ -74,17 +74,23 @@ ul.sortable {
 
 ul.sortable li {
 	display: block;
+	width: 140px;
+	height: 93px;
+	text-align: center;
+	background-color: #000;
 	float: left;
 	padding: 10px 10px 10px 10px;
+	margin:  10px 10px 10px 10px;
 }
 
 ul.sortable li div.controls {
 	background: #000000;
-	width: 50px;
+	width: 60px;
 	padding: 0px 1px 1px 2px;
 	vertical-align: center;
+	text-align: center;
 	position: relative;
-	right:-84px;
+	right:-74px;
 	top:-23px;
 	text-align:center;
 }
@@ -92,5 +98,14 @@ ul.sortable li div.controls {
 ul.sortable li div.controls a {
 	text-decoration: none;
 	color: red;
+}
+
+ul.sortable li div.tag_list {
+	border: 2px solid #557362;
+	width: 155px;
+	height: 70px;
+	background-color: #BFB49F;
+	z-index: 1;
+	left: -10px;
 }
 /* admin */

@@ -22,7 +22,11 @@
 
 <div>
 <div style='width:580px;float:left;'>
-	
+<script>
+	function showTagFieldFor(id){
+		$j('#'+id+' .tag_list').toggle();
+	}
+</script>	
 <fieldset id="images">
 	<legend>Картинки</legend>
 	<ul id="photo-list" class="sortable">

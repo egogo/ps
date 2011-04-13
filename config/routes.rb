@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
     admin.resources :galleries, :member => [:sort] do |gallery|
-      gallery.resources :photos, :member => [:set_default]
+      gallery.resources :photos, :member => [:set_default, :set_tags]
     end
     admin.resources :users
     admin.resources :static_pages

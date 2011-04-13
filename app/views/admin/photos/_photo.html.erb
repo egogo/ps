@@ -7,5 +7,12 @@
 			<%= link_to_remote "[!]", :url => set_default_admin_gallery_photo_path(photo.gallery_id, photo) -%>
 		<% end %>
 <%= link_to_remote "[x]", :url => admin_gallery_photo_path(photo.gallery_id, photo), :method => :delete, :confirm => 'Вы уверенны что хотите удалить изображение?' -%>
+<%= link_to_function '[t]', "showTagFieldFor('image_#{photo.id}')" -%>
+	</div>
+	<div class='tag_list' style='position:relative; display: none;'>
+		<% remote_form_for photo, :url => set_tags_admin_gallery_photo_path(photo.gallery.id, photo.id) do |f| %>
+			<%= f.text_field :tag_list, :style => 'width: 148px;' %>
+			<%= submit_tag 'Сохранить' %>
+		<% end %>
 	</div>
 </li>

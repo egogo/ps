@@ -29,10 +29,22 @@ class Admin::PhotosController < Admin::BaseController
   
   def destroy
     @photo = Photo.find(params[:id])
+    @gallery = @photo.gallery
     @photo.destroy
     clear_gallery_cache
     render :update do |page|
       page.remove "image_#{params[:id]}"
+    end
+  end
+  
+  def set_tags
+    @photo = Photo.find(params[:id])
+    @gallery = @photo.gallery
+    @photo.tag_list = params[:photo][:tag_list]
+    @photo.save!
+    clear_gallery_cache
+    render :update do |page|
+      page.hide "#image_#{params[:id]} .tag_list"
     end
   end
   
