@@ -22,6 +22,10 @@ module SwfUploadFuHelper
   def swfupload  upload_url,path='shared', template='swfupload_form.html.erb'
     render :partial=>"/#{path}/#{template}",:locals=>{:upload_url=>upload_path_with_session_information(upload_url)}
   end
+  
+  def swfupload_custom  upload_url, path='shared', template='swfupload_form.html.erb'
+    render :partial=>"/#{path}/#{template}",:locals=>{:upload_url=>upload_url}
+  end
 
 private
 
