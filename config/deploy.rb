@@ -1,13 +1,13 @@
 
   set :application, "photoshaft"
-  set :domain, "67.202.53.148"
+  set :domain, "foto.rubyriders.com"
   role :app, domain
   role :web, domain
   role :db, domain, :primary => true
   set :deploy_to, "/home/ego/#{application}"
   set :user, "ego"
   # set :password, ""
-  set :group, "root"
+  set :group, "ego"
  
   set :scm, "git"
   set :repository, "git://github.com/egogo/ps.git"
