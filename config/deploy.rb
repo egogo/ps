@@ -54,13 +54,13 @@
   end
  
   task :fix_public_dir_permission do
-    run "chgrp -R ego #{release_path}/public"
+    run "chgrp -R root #{release_path}/public"
     run "chmod -R g+w #{release_path}/public"
   end
  
   task :fix_tmp_dir_permission do
-    run "chgrp -R ego #{release_path}/tmp"
-    sudo "chown -R ego:ego #{release_path}/tmp"
+    run "chgrp -R root #{release_path}/tmp"
+    sudo "chown -R root #{release_path}/tmp"
     sudo "chmod -R a+rw #{release_path}/tmp"
   end
   
