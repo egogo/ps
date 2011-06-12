@@ -1,13 +1,13 @@
 
   set :application, "photoshaft"
-  set :domain, "foto.rubyriders.com"
+  set :domain, "ec2-50-16-102-158.compute-1.amazonaws.com"
   role :app, domain
   role :web, domain
   role :db, domain, :primary => true
-  set :deploy_to, "/home/ego/#{application}"
-  set :user, "ego"
+  set :deploy_to, "/var/www/apps/#{application}"
+  set :user, "root"
   # set :password, ""
-  set :group, "ego"
+  set :group, "root"
  
   set :scm, "git"
   set :repository, "git://github.com/egogo/ps.git"
