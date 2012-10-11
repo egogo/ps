@@ -18,6 +18,16 @@
 			<%= submit_tag 'Сохранить' %>
 		</div>
 	</fieldset>
+	<fieldset>
+		<div style='width:50%; float: left;'>
+			<legend>Кейворды</legend>
+			<%= f.text_area :keywords, :rows => 3, :style => 'width:100%;' %>
+		</div>
+		<div style='width:50%; float: left;'>
+			<label>Дескрипшен</label>
+			<%= f.text_area :description, :rows => 3, :style => 'width:100%;' %>
+		</div>
+	</fieldset>
 <% end %>
 
 <div>

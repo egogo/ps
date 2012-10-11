@@ -26,6 +26,10 @@ after 'deploy:update_code', :roles => :app do
   # Здесь для примера вставлен только один конфиг с приватными данными - database.yml. Обычно для таких вещей создают папку /srv/myapp/shared/config и кладут файлы туда. При каждом деплое создаются ссылки на них в нужные места приложения.
   run "rm -f #{current_release}/config/database.yml"
   run "ln -s #{deploy_to}/shared/config/database.yml #{current_release}/config/database.yml"
+  run "rm -rf #{release_path}/public/images/gallery"
+  run "ln -s #{deploy_to}/#{shared_dir}/assets/gallery #{release_path}/public/images"
+  run "ln -s #{deploy_to}/#{shared_dir}/db/production.sqlite3 #{release_path}/db/production.sqlite3"
+  sudo "chmod -R a+rw #{release_path}/public/images/gallery"
 end
 
 # Далее идут правила для перезапуска unicorn. Их стоит просто принять на веру - они работают.

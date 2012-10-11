@@ -5,6 +5,8 @@
 	<title>Photo:Shaft</title>
 	<link rel="icon" href="<%= image_path('favicon.ico') -%>" type="image/ico" />
 	<link rel="shortcut icon" href="<%= image_path('favicon.ico') -%>" type="image/ico" />
+	<meta name="Keywords" content="<%= @keywords -%>" />
+	<meta name="Description" content="<%= @description -%>" />
 	<%= stylesheet_link_tag 'style' %>
 	<%= javascript_include_tag 'mootools-1.2.3-core.js', 'mootools-1.2.3.1-more.js' %>
 	<%= yield :script -%>

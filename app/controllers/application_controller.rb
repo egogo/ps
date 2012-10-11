@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   
   DEFAULT_LANGUAGE = 'ru'
   
-  before_filter :set_lang, :get_items, :load_statics
+  before_filter :set_lang, :get_items, :load_statics,  :set_keywords_and_desc
   
   protected
     def set_lang
@@ -35,6 +35,11 @@ class ApplicationController < ActionController::Base
     
     def default_url_options(options={})
       { :lang => session[:lang] }.reverse_merge!(options)
+    end
+    
+    def set_keywords_and_desc
+      @keywords = 'photo, фото, photographer, фотограф, studio, студия'
+      @description = 'Фотостудия ШАФТ'
     end
   
 end
